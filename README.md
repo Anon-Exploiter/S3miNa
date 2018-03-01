@@ -1,12 +1,12 @@
 # S3miNa
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![python](https://img.shields.io/badge/python-2.7-blue.svg)](https://www.python.org/downloads/)
-[![GitHub version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=6&v=6.0&x2=0)](http://badge.fury.io/gh/boennemann%2Fbadges)
+[![GitHub version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=1&v=1.0.1&x2=0)](http://badge.fury.io/gh/boennemann%2Fbadges)
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 
 **A python based utility to download animes (with no bullshit) ¯\\_(ツ)_/¯**
 
-<img src="https://i.imgur.com/9KubVzA.png" />
+<img src="https://i.imgur.com/0bwOcSS.png" />
 
 ### Requirements
 
@@ -75,15 +75,13 @@ Options:
 
 ### Screenshots
 
+<img src="https://i.imgur.com/9KubVzA.png" />
 <img src="https://i.imgur.com/tsPYTg0.png" />
-<img src="https://i.imgur.com/sBZ0n5i.png" />
-<img src="https://i.imgur.com/a6DsVOP.png" />
-<img src="https://i.imgur.com/noKnHfJ.png" />
-<img src="https://i.imgur.com/3iIdnto.png" />
-<img src="https://i.imgur.com/cjS9SOV.png" />
+<img src="https://i.imgur.com/QbIGGu2.png" />
+<img src="https://i.imgur.com/WMWwQfx.png" />
 
 ### Note 
 <pre><code>Do not change the position of any module as given under the Usage, this may cause an failure in the working of the script...
 P.S ~ Dont Change The Colors, Banners. They're Butiphul like this.
-	~ An0n 3xPloiTeR
+	~ An0n 3xPloiTeR ¯\_(ツ)_/¯
 </code></pre>
