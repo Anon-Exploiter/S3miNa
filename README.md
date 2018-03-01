@@ -10,6 +10,7 @@
 
 ### Requirements
 
+- Software `IDM`
 - Python (2.7.14)
 - Python `pip`
 - Python module `requests`
