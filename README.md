@@ -38,11 +38,47 @@ You can download the latest version of S3miNa by cloning the GitHub repository.
 - Removed Some Crap! :)
 
 
-### Usage
+## ***Usage***
 
 ***Initializing Script***
 
 	python semina.py
+
+***Downloading Anime (Subbed)***
+
+    python semina.py --subbed --url=http://animegg(.)org/series/bleach
+  
+***Downloading Anime (Dubbed)***
+
+    python semina.py --dubbed --url=http://animegg(.)org/series/bleach
+  
+***Downloading From a Specific Point To The End (Subbed)***
+
+    python semina.py --start=150 --subbed --url=http://animegg(.)org/series/bleach
+  
+***Downloading From Start To A Ending Point (Subbed)***
+
+    python semina.py --end=5 --subbed --url=http://animegg(.)org/series/bleach
+  
+***Downloading From a Specific Point To The End (Dubbed)***
+
+    python semina.py --start=150 --dubbed --url=http://animegg(.)org/series/bleach
+  
+***Downloading From Start To A Ending Point (Dubbed)***
+
+    python semina.py --end=5 --dubbed --url=http://animegg(.)org/series/bleach
+
+***Downloading A Single Anime Video (Subbed)***
+
+    python semina.py --single --subbed --url=http://www(.)animegg.org/bleach-episode-62
+
+***Downloading A Single Anime Video (Dubbed)***
+
+    python semina.py --single --dubbed --url=http://www(.)animegg.org/bleach-episode-62
+
+***Download Without BullShit :}***
+
+    python semina.py --noshit --url=http://animegg(.)org/series/bleach
 	
 
 ### Advanced Usage
@@ -70,12 +106,12 @@ Options:
   	 |____ Subbed
   
   Example:
-	python semina.py --noshit --url=http://www.animegg.org/series/bleach 
+	python semina.py --noshit --url=http://www.animegg(.)org/series/bleach 
 </code></pre>
 
 ### Screenshots
 
-<img src="https://i.imgur.com/9KubVzA.png" />
+<img src="https://i.imgur.com/0bwOcSS.png" />
 <img src="https://i.imgur.com/tsPYTg0.png" />
 <img src="https://i.imgur.com/QbIGGu2.png" />
 <img src="https://i.imgur.com/WMWwQfx.png" />
