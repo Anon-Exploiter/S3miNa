@@ -1,11 +1,32 @@
+"""
+_______________.___.
+\______   \__  |   |
+ |    |  _//   |   |
+ |    |   \\____   |
+ |______  // ______|
+        \/ \/       
+   _____         _______           ________        __________.__         ._____________   __________ 
+  /  _  \   ____ \   _  \   ____   \_____  \___  __\______   |  |   ____ |__\__    _______\______   \
+ /  /_\  \ /    \/  /_\  \ /    \    _(__  <\  \/  /|     ___|  |  /  _ \|  | |    |_/ __ \|       _/
+/    |    |   |  \  \_/   |   |  \  /       \>    < |    |   |  |_(  <_> |  | |    |\  ___/|    |   \
+\____|__  |___|  /\_____  |___|  / /______  /__/\_ \|____|   |____/\____/|__| |____| \___  |____|_  /
+        \/     \/       \/     \/         \/      \/                                     \/       \/ 
+
+                                ~ Changing Coder Name Wont Make You One :)
+                                             ~ An0n 3xPloiTeR :)
+"""
+
+#####################################################################################################
+        ################################   Importing Packages   ################################ 
+#####################################################################################################
+
 from insides import *
 from bs4 	 import BeautifulSoup
 from re 	 import findall
 from sys 	 import stdout
-from time 	 import time
 import os
 
-def AnimeDownloader(url, subbed=True, dubbed=False, start=False, end=False, single=False, quality=False):
+def AnimeDownloader(url, subbed=False, dubbed=False, start=False, end=False, single=False, quality=False):
 
 	def _new(url):
 		"""
@@ -37,23 +58,33 @@ def AnimeDownloader(url, subbed=True, dubbed=False, start=False, end=False, sing
 			return(name.capitalize())
 
 	def _request(url):
+		"""
+		Makes A Nice And Botiphul Request :} 
+		"""
 		try:
 			request 	= Request(url, _timeout=5, _redir=True, __req_body=True)
 			request 	= request.text.encode('utf-8')
 			return(request)
 		except AttributeError:
 			try:
-				write("{}!".format(r), c, data="{:<15}{}~> {}Your Internet Speed Seems Slow {} ".format("Warning", w, r, ":{"))
+				write("{}!".format(r), c, data="{:<15}{}~> {}Your Internet Speed Seems Slow {}".format("Warning", w, r, ":{"))
 				request 	= Request(url, _timeout=5, _redir=True, __req_body=True)
 				request 	= request.text.encode('utf-8')
 				return(request)
 			except AttributeError:
-				print("sd")
+				write("{}!".format(r), c, data="{}{:<15}{}~> {}You Better Get Some Bandwidth NiGGa {}".format(g, "S3d-N0t3", w, r, ":')"))
+				exit(Footer)
 
 
 	def parse(data):
+		"""
+		Parses The Data and Return List Of Links Of Episodes To Download
+		"""
 		soup 		= BeautifulSoup(data, 'lxml')
 		_list 		= soup.find_all('a', class_="anm_det_pop")
+
+		# print(str(end['count']))
+
 		if start != False:
 			_count 		= start['count']
 			_count 		= _count - 1
@@ -73,106 +104,74 @@ def AnimeDownloader(url, subbed=True, dubbed=False, start=False, end=False, sing
 
 			combination 	= website + links['href']
 
-			# if subbed == True:
-			# 	combination 	= website + links['href'] + "#subbed"
-
-			# elif dubbed == True:
-			# 	combination 	= website + links['href'] + "#dubbed"
-
-			# else:
-			# 	combination 	= website + links['href'] + "#subbed"
-
 			_lis.append(combination)
-			# print(links)
 		return(_lis)
 
+	def filter(_links):
+		"""
+		An Alternate To Finding Subbed / Dubbed Episodes :')
+		Lots Of Bullshit :p 
+		"""
+
+		if len(_links) == 3:
+			if subbed == True:
+				link 	= _links[1]
+
+			elif dubbed == True:
+				link 	= _links[2]
+
+			else:
+				link 	= _links[1]
+
+		elif len(_links) == 2:
+			if subbed == True:
+				link 	= _links[0]
+
+			elif dubbed == True:
+				link 	= _links[1]
+
+			else:
+				link 	= _links[0]
+
+
+		elif len(_links) == 1:
+			if dubbed == True:
+				write("{}!".format(r), c, data="{}{:<15}{}~> {}Dubbed Not Available; {}Downloading Subbed! {}".format(r, "Inf0", w, c, g, w+":{"))
+				link 		= _links[0]
+			else:
+				link 		= _links[0]
+
+		elif len(_links) == 0:
+			write("{}!".format(r), c, data="{}{:<15}{}~> {}Bruh! It seems this episode isn't up yet {}".format(r, "D@mN", w, g, w+":')"))
+
+		else:
+			print(len(_links))
+			print(_links)
+			link 			= _links[0]
+
+		return(link)
+
 	def download(_list, __name):
+		"""
+		Downloads The Episode / Episodes
+		Requires Lots Of Man Power XD
+		"""
 
 		if single == False:
 			for links in _list:
-				# print links
+
 				write("~", c, data="{:<15}{}~> {}{}".format("Downloading", w, g, links))
 				request		= _request(links)
-				# print request
+
 				__links_reg = r'<iframe src=\"(.*?)\" allowfullscreen style=\"border: 0; padding: 0; margin: 0; overflow: hidden;\" scrolling=\"no\" class=\"video\"><\/iframe>'
 				__name_reg 	= r'<span class=\"e4tit\">(.*?)<\/span>'
+
 				_links 		= findall(__links_reg, request)
 				__vid_name 	= findall(__name_reg, request)[0]
 				__vid_name 	= (__vid_name.replace("amp;", "").replace("amp", "").replace("&", "").replace("&amp;", "").replace(",", "").replace(")", "").replace("(", "").replace("]", "").replace("[", "").replace("#", "").replace(' ', '_').replace(':', '').replace('!', '').replace('?', '').replace('\'', '').replace('/', '').replace('.', '') + ".mp4").capitalize()
 				write("~", g, data="{:<15}{}~> {}{}".format("Title", w, c, __vid_name.replace(".mp4", "")))
 
-
-				if len(_links) <= 5:
-					# Downloads Subbed / Dubbed
-					if subbed == True:
-						link 	= _links[0]
-
-					elif dubbed == True:
-						link 	= _links[1]
-
-					else:
-						link 	= _links[0]
-
-					combination = website + link
-					request 	= _request(combination)
-					__file_reg 	= r'\{file: \"(.*?)\",'
-					file_link 	= findall(__file_reg, request)[0]
-
-					path 	 	= os.getcwd() + "/"
-
-					anime_dir 	= os.getcwd() + "/" + "animes"
-					anime_path 	= os.getcwd() + "/" + "animes" + "/" + __name
-
-
-					if not(os.path.isdir(anime_dir)):
-						os.mkdir(anime_dir)
-						if not(os.path.isdir(anime_path)):
-							os.mkdir(anime_path)
-
-					combination = website + file_link
-					__file_name = (removeHTTP(links).replace("www.", "").replace("animegg.org", "").replace("/", "").replace("-", "_") + "_" + __vid_name).capitalize()
-					command 	= 'idman /d "' + str(combination) + '" /p ' + anime_path + '/ /f ' + str(__file_name) + ' /n'
-					# print command
-					os.system(command)
-					
-					while not(os.path.isfile(anime_path + "/" + __file_name)):
-						stdout.write("\r{}[{}!{}]{} {:<15}{}~> {}Downloading ...\r".format(w, y, w, c, "Status", w, y))
-						sleep(0.1)
-					
-					else:
-						sleep(0.1)
-						stdout.write("{}[{}#{}]{} {:<15}{}~> {}Completed{}\n\n".format(w, g, w, c, "Status", w, g, " " * 10))
-						continue
-					t2 			= time()
-					total 		= (t2 - t1 - 0.1)
-					total 		= str(total)
-					total 		= total[:4]
-					write("*", g, data="{:<15}{}~> {}{} seconds...\n".format("Total Time", w, c, total))
-
-
-		else:
-			t1 			= time()
-			__url 		= single['_url']
-			url_		= __url.replace("#", "").replace("subbed", "").replace("raw", "").replace("dubbed", "")
-			write("~", c, data="{:<15}{}~> {}{}".format("Downloading", w, g, url_))
-			request		= _request(__url)
-			# print request
-			__links_reg = r'<iframe src=\"(.*?)\" allowfullscreen style=\"border: 0; padding: 0; margin: 0; overflow: hidden;\" scrolling=\"no\" class=\"video\"><\/iframe>'
-			__name_reg 	= r'<span class=\"e4tit\">(.*?)<\/span>'
-			_links 		= findall(__links_reg, request)
-			__vid_name 	= findall(__name_reg, request)[0]
-			__vid_name 	= (__vid_name.replace(' ', '_').replace(':', '').replace('!', '').replace('?', '').replace('\'', '').replace('/', '').replace('.', '') + ".mp4").capitalize()
-			write("~", g, data="{:<15}{}~> {}{}".format("Title", w, c, __vid_name.replace(".mp4", "")))
-
-			if len(_links) <= 5:
-				if subbed == True:
-					link 	= _links[0]
-
-				elif dubbed == True:
-					link 	= _links[1]
-
-				else:
-					link 	= _links[0]
+				link = filter(_links)
 
 				combination = website + link
 				request 	= _request(combination)
@@ -180,7 +179,6 @@ def AnimeDownloader(url, subbed=True, dubbed=False, start=False, end=False, sing
 				file_link 	= findall(__file_reg, request)[0]
 
 				path 	 	= os.getcwd() + "/"
-
 				anime_dir 	= os.getcwd() + "/" + "animes"
 				anime_path 	= os.getcwd() + "/" + "animes" + "/" + __name
 
@@ -191,13 +189,9 @@ def AnimeDownloader(url, subbed=True, dubbed=False, start=False, end=False, sing
 						os.mkdir(anime_path)
 
 				combination = website + file_link
-				__file_name = (removeHTTP(__url).replace("#", "").replace("subbed", "").replace("dubbed", "").replace("raw", "").replace("www.", "").replace("animegg.org", "").replace("/", "").replace("-", "_") + "_" + __vid_name).capitalize()
-				command 	= 'idman /d "' + str(combination) + '" /p ' + anime_path + '/ /f ' + str(__file_name) + ' /n'
-				# print command
+				__file_name = (removeHTTP(links).replace("www.", "").replace("animegg.org", "").replace("/", "").replace("-", "_") + "_" + __vid_name).capitalize()
+				command 	= 'idman /d "' + str(combination) + '" /p "' + anime_path + '/" /f ' + str(__file_name) + ' /n'
 				os.system(command)
-
-				# print anime_path
-				# print __file_name
 				
 				while not(os.path.isfile(anime_path + "/" + __file_name)):
 					stdout.write("\r{}[{}!{}]{} {:<15}{}~> {}Downloading ...\r".format(w, y, w, c, "Status", w, y))
@@ -205,18 +199,55 @@ def AnimeDownloader(url, subbed=True, dubbed=False, start=False, end=False, sing
 				
 				else:
 					sleep(0.1)
-					stdout.write("{}[{}#{}]{} {:<15}{}~> {}Completed{}\n".format(w, g, w, c, "Status", w, g, " " * 10))
+					stdout.write("{}[{}#{}]{} {:<15}{}~> {}Completed{}\n\n".format(w, g, w, c, "Status", w, g, " " * 10))
+					continue
 
-				t2 			= time()
-				total 		= (t2 - t1 - 0.1)
-				total 		= str(total)
-				total 		= total[:4]
-				write("*", g, data="{:<15}{}~> {}{} seconds...".format("Total Time", w, c, total))
+		else:
+			__url 		= single['_url']
+			url_		= __url.replace("#", "").replace("subbed", "").replace("raw", "").replace("dubbed", "")
 
-	url 	= _new(url)
-	_url	= removeHTTP(_new(url))
-	heading("Downloading", header(_url), g, afterWebHead="")
-	data 	= _request(url)
-	_list 	= parse(data)
-	# print _list
-	download(_list, __name=header(_url, forSingle=True))
+			write("~", c, data="{:<15}{}~> {}{}".format("Downloading", w, g, url_))
+			request		= _request(__url)
+
+			__links_reg = r'<iframe src=\"(.*?)\" allowfullscreen style=\"border: 0; padding: 0; margin: 0; overflow: hidden;\" scrolling=\"no\" class=\"video\"><\/iframe>'
+			__name_reg 	= r'<span class=\"e4tit\">(.*?)<\/span>'
+
+			_links 		= findall(__links_reg, request)
+			__vid_name 	= findall(__name_reg, request)[0]
+			__vid_name 	= (__vid_name.replace(' ', '_').replace(':', '').replace('!', '').replace('?', '').replace('\'', '').replace('/', '').replace('.', '') + ".mp4").capitalize()
+
+			write("~", g, data="{:<15}{}~> {}{}".format("Title", w, c, __vid_name.replace(".mp4", "")))
+
+			link = filter(_links)
+
+			combination = website + link
+			request 	= _request(combination)
+			__file_reg 	= r'\{file: \"(.*?)\",'
+			file_link 	= findall(__file_reg, request)[0]
+
+			path 	 	= os.getcwd() + "/"
+			anime_dir 	= os.getcwd() + "/" + "animes"
+			anime_path 	= os.getcwd() + "/" + "animes" + "/" + "Single_Episodes"
+
+
+			if not(os.path.isdir(anime_dir)):
+				os.mkdir(anime_dir)
+				if not(os.path.isdir(anime_path)):
+					os.mkdir(anime_path)
+
+			combination = website + file_link
+			__file_name = (removeHTTP(__url).replace("#", "").replace("subbed", "").replace("dubbed", "").replace("raw", "").replace("www.", "").replace("animegg.org", "").replace("/", "").replace("-", "_") + "_" + __vid_name).capitalize()
+			command 	= 'idman /d "' + str(combination) + '" /p "' + anime_path + '/" /f ' + str(__file_name) + ' /n'
+			os.system(command)
+			
+			while not(os.path.isfile(anime_path + "/" + __file_name)):
+				stdout.write("\r{}[{}!{}]{} {:<15}{}~> {}Downloading ...\r".format(w, y, w, c, "Status", w, y))
+				sleep(0.1)
+			
+			else:
+				sleep(0.1)
+				stdout.write("{}[{}#{}]{} {:<15}{}~> {}Completed{}\n".format(w, g, w, c, "Status", w, g, " " * 10))
+
+
+	heading("Downloading", header(removeHTTP(_new(url))), g, afterWebHead="")
+	download(parse(_request(_new(url))), __name=header(removeHTTP(_new(url)), forSingle=True))

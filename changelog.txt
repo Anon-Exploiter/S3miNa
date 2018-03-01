@@ -1,0 +1,16 @@
+Version 	==> 	1.0.1 (Current {Beta Release}):
+
+BugFixes:
+1). Fixed Downloading Of Subbed / Dubbed Animes.
+2). Fixed Option Of Downloading Of Subbed / Dubbed Animes While Starting from a Specific Point.
+3). Fixed Option Of Downloading Of Subbed / Dubbed Animes While Ending to a Specific Point.
+4). Fixed Err0r Messages ¯\_(ツ)_/¯
+5). Added Some More Exceptions For Err0rs
+
+Whats New:
+1). It Downloads HD Too Now (If Available on the Website)
+
+______________________________________________________________________________________________________________________
+
+Version 	==> 	1.0 (Old {Beta Release}):
+The Version Under Which It Was Made.
