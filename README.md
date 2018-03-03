@@ -45,6 +45,10 @@ You can download the latest version of S3miNa by cloning the GitHub repository.
 
 	python semina.py
 
+***Finding Your Favourite Anime***
+
+	Grab it @ -~> http://www.animegg(.)org/series/
+
 ***Downloading Anime (Subbed)***
 
     python semina.py --subbed --url=http://animegg(.)org/series/bleach
