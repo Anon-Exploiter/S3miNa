@@ -35,5 +35,3 @@ __prog_version = "1.0.1 {{beta}}"
 
 _usage 		= "\r{}[{}#{}] Usage: python {}%prog{} --noshit {}http://animegg.org/series/bleach".format(w,c,w,g,w,g)
 _version 	= "{}[{}~{}] {}Version: {}1.0.1 {{beta}}".format(w,c,w,w,g)
-
-"""
