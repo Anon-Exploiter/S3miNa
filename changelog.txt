@@ -1,3 +1,14 @@
+Version 	==> 	2.0 (Current {Beta Release}):
+
+BugFixes:
+1). Fixed NameError exception using lousy method.
+2). Added Some More {Exception Covering} For Err0rs
+
+Whats New:
+	-- It Now Supports IDM as well as axel (for linux user). Just need to keep in mind that edit core.py and in there find variable named "command" comment / uncomment it to use the program you want / you don't. (I know its a lousy method but i don't want to add arguments for now, because soon i'll be changing the whole script (the downloading site as well :))
+
+______________________________________________________________________________________________________________________
+
 Version 	==> 	1.0.1 (Current {Beta Release}):
 
 BugFixes:
@@ -8,7 +19,7 @@ BugFixes:
 5). Added Some More Exceptions For Err0rs
 
 Whats New:
-1). It Downloads HD Too Now (If Available on the Website)
+	-- It Downloads HD Too Now (If Available on the Website)
 
 ______________________________________________________________________________________________________________________
 

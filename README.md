@@ -10,6 +10,7 @@
 
 ### Requirements
 
+- Package `axel`
 - Software `IDM`
 - Python (2.7.14)
 - Python `pip`
@@ -20,11 +21,12 @@
 
 ### Install modules
 
-	pip install -r requirements.txt
+	pip install -r requirements.txt && sudo apt update && sudo apt install axel
 	
 ### Tested on
 
 - Windows 8.1/10
+- Kali Linux WSL
  
 ### Download S3miNa
 
