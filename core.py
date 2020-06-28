@@ -168,7 +168,8 @@ def AnimeDownloader(url, subbed=False, dubbed=False, start=False, end=False, sin
 						os.mkdir(anime_path)
 
 				combination = website + file_link
-				__file_name = (removeHTTP(links).replace("www.", "").replace("animegg.org", "").replace("/", "").replace("-", "_") + "_" + __vid_name).capitalize()
+				__file_name = (removeHTTP(links).replace("www.", "").replace("animegg.org", "").replace("/", "").replace("-", "_") + "_" + __vid_name).capitalize().replace("`", "")
+
 				### Use whatever program you want to download (uncomment the one you want, comment the one you don't :)
 				# command 	= 'idman /d "' + str(combination) + '" /p "' + anime_path + '/" /f ' + str(__file_name) + ' /n'
 				command         = "axel --num-connections=16 -a --header=\"Referer: " + referer + "\" --output=\"" + anime_path + "/" + __file_name + "\" " + combination

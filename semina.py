@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from insides import *
 from sys 	 import argv
 from core 	 import AnimeDownloader
@@ -6,10 +8,6 @@ import socket
 import httplib
 
 print(Banner)
-
-#subbed ==> working
-#dubbed --> working
-#start  --> not collaborating with subbed && dubbed both
 
 parser 	= optparse.OptionParser(
 	usage=config._usage,
