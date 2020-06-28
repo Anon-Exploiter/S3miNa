@@ -1,25 +1,3 @@
-"""
-_______________.___.
-\______   \__  |   |
- |    |  _//   |   |
- |    |   \\____   |
- |______  // ______|
-        \/ \/
-   _____         _______           ________        __________.__         ._____________   __________ 
-  /  _  \   ____ \   _  \   ____   \_____  \___  __\______   |  |   ____ |__\__    _______\______   \
- /  /_\  \ /    \/  /_\  \ /    \    _(__  <\  \/  /|     ___|  |  /  _ \|  | |    |_/ __ \|       _/
-/    |    |   |  \  \_/   |   |  \  /       \>    < |    |   |  |_(  <_> |  | |    |\  ___/|    |   \
-\____|__  |___|  /\_____  |___|  / /______  /__/\_ \|____|   |____/\____/|__| |____| \___  |____|_  /
-        \/     \/       \/     \/         \/      \/                                     \/       \/ 
-
-                                ~ Changing Coder Name Wont Make You One :)
-                                             ~ An0n 3xPloiTeR :)
-"""
-
-#####################################################################################################
-        ################################   Importing Packages   ################################ 
-#####################################################################################################
-
 from insides import *
 from bs4 	 import BeautifulSoup
 from re 	 import findall
@@ -189,7 +167,7 @@ def AnimeDownloader(url, subbed=False, dubbed=False, start=False, end=False, sin
 					if not(os.path.isdir(anime_path)):
 						os.mkdir(anime_path)
 
-				combination = "https://www.animegg.org" + file_link
+				combination = website + file_link
 				__file_name = (removeHTTP(links).replace("www.", "").replace("animegg.org", "").replace("/", "").replace("-", "_") + "_" + __vid_name).capitalize()
 				### Use whatever program you want to download (uncomment the one you want, comment the one you don't :)
 				# command 	= 'idman /d "' + str(combination) + '" /p "' + anime_path + '/" /f ' + str(__file_name) + ' /n'
