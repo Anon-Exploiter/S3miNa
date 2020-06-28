@@ -49,7 +49,7 @@ def AnimeDownloader(url, subbed=False, dubbed=False, start=False, end=False, sin
 				request 	= request.text.encode('utf-8')
 				return(request)
 			except AttributeError:
-				write("{}!".format(r), c, data="{}{:<15}{}~> {}You Better Get Some Bandwidth NiGGa {}".format(g, "S3d-N0t3", w, r, ":')"))
+				write("{}!".format(r), c, data="{}{:<15}{}~> {}You Better Get Some Bandwidth bro! {}".format(g, "S3d-N0t3", w, r, ":')"))
 				exit(Footer)
 
 
