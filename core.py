@@ -62,8 +62,7 @@ def AnimeDownloader(url, subbed=False, dubbed=False, start=False, end=False, sin
 		Makes A Nice And Botiphul Request :} 
 		"""
 		try:
-			request 	= Request(url, _timeout=5, _redir=True, __req_body=True)
-			request 	= request.text.encode('utf-8')
+			request 	= Request(url, _timeout=5, _redir=True, __req_body=True).text
 			return(request)
 		except AttributeError:
 			try:
@@ -176,6 +175,7 @@ def AnimeDownloader(url, subbed=False, dubbed=False, start=False, end=False, sin
 
 				combination = website + link
 				request 	= _request(combination)
+
 				__file_reg 	= r'\{file: \"(.*?)\",'
 				file_link 	= findall(__file_reg, request)[0]
 
@@ -189,12 +189,11 @@ def AnimeDownloader(url, subbed=False, dubbed=False, start=False, end=False, sin
 					if not(os.path.isdir(anime_path)):
 						os.mkdir(anime_path)
 
-				combination = file_link
+				combination = "https://www.animegg.org" + file_link
 				__file_name = (removeHTTP(links).replace("www.", "").replace("animegg.org", "").replace("/", "").replace("-", "_") + "_" + __vid_name).capitalize()
 				### Use whatever program you want to download (uncomment the one you want, comment the one you don't :)
 				# command 	= 'idman /d "' + str(combination) + '" /p "' + anime_path + '/" /f ' + str(__file_name) + ' /n'
-				command         = "axel --num-connections=10 -a --header=\"Referer: " + referer + "\" --output=\"" + anime_path + "/" + __file_name + "\" " + combination
-				print(command)
+				command         = "axel --num-connections=16 -a --header=\"Referer: " + referer + "\" --output=\"" + anime_path + "/" + __file_name + "\" " + combination
 				os.system(command)
 
 				while not(os.path.isfile(anime_path + "/" + __file_name)):

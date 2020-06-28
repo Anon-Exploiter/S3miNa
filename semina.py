@@ -141,9 +141,6 @@ except NameError, e:
 except KeyboardInterrupt:
     write(var="~", color=w, data="{}Err0r{}: {}User Interrupted!{}".format(r, w, g, " " * 15))
 
-except Exception, e:
-    write(var="#", color=r, data="Err0r: Kindly Report the err0r below to An0n3xPloiTeR :) (If Your Internet's Working ;)\n\"\"\"\n" + str(e) + "\n\"\"\"")
-
 print(Footer)
 
 # ~ See Ya :D
