@@ -1,9 +1,17 @@
 # S3miNa
+
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 [![python](https://img.shields.io/badge/python-2.7-blue.svg)](https://www.python.org/downloads/)
 [![GitHub version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=1&v=1.0.1&x2=0)](http://badge.fury.io/gh/boennemann%2Fbadges)
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 
 **A python based utility to download animes (with no bullshit) ¯\\_(ツ)_/¯**
+
+---
+
+**The project is deprecated and maintainence isn't intended in the future. Please use** https://github.com/Anon-Exploiter/anime-dl **instead!**
+
+---
 
 <img src="https://i.imgur.com/0bwOcSS.png" />
 
